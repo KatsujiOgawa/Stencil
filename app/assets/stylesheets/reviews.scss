@@ -10,36 +10,35 @@ main{
   padding-top: 20px;
   height:calc(85vh - 20px);
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .side-bar{
   display: flex;
-  padding: 0 5px 0 10px;
+  padding: 0 15px 0 15px;
   width:80px;
   writing-mode: vertical-rl;
   border-right: #666666 1px solid;
   display: flex;
   justify-content: space-around;
-  // background-color: sandybrown;
 }
 
 .side-bar a{
-  font-size: 20px;
+  font-size: 17px;
   width: 30%;
 }
 
 .image-area{
-  margin-left: 20px;
+  margin-left: 3vw;
   display: flex;
   justify-content: flex-start;
 }
 
 
 .side-image{
-  width: 7vw;
+  width: 6vw;
   height:calc(85vh - 20px);
-  padding-right: 20px;
+  padding-right: 1vw;
 }
 
 
@@ -57,7 +56,7 @@ footer{
 
 .under-ber{
   width: 100%;
-  margin: 20px;
+  margin: 20px 0px;
   padding: 10px;
   display: flex;
   flex-direction: row-reverse;
@@ -66,6 +65,7 @@ footer{
 
 footer a{
 font-size: 45px;
+padding-right: 40px;
 }
 
 // 共通部分↑
@@ -73,11 +73,14 @@ font-size: 45px;
 
 
 .root-container{
+  margin-right: 40px;
+  // background-color: lightpink;
   display: flex;
   justify-content: flex-start;
 }
 
 .root-image{
-  width: 70%;
+  width: 35%;
   height:calc(85vh - 17px);
+  margin-right: 20px;
 }
