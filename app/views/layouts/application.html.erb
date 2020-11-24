@@ -4,12 +4,28 @@
     <title>Stencil</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <div class="side-bar">
+        <%= link_to "How to use", "#" %>
+        <%= link_to "Sign up", "#" %>
+        <%= link_to "Login", "#" %>
+      </div>
+      <div class="image-area">
+        <%= image_tag "object1.jpg", class:"header-image" %>
+        <%= image_tag "object1.jpg", class:"header-image" %>
+      </div>
+    </header>
     <%= yield %>
+    <footer>
+      <div class="under-ber">
+        <%= link_to "Stencil", "#" %>
+      </div>
+    </footer>
   </body>
 </html>
