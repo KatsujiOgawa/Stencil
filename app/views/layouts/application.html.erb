@@ -10,18 +10,21 @@
   </head>
 
   <body>
-    <header>
+    <main>
       <div class="side-bar">
-        <%= link_to "How to use", "#" %>
+        <%= link_to "About", "#" %>
         <%= link_to "Sign up", "#" %>
         <%= link_to "Login", "#" %>
+        <%= link_to "Search", "#" %>
       </div>
       <div class="image-area">
-        <%= image_tag "object1.jpg", class:"header-image" %>
-        <%= image_tag "object1.jpg", class:"header-image" %>
+        <%= image_tag "object1.jpg", class:"side-image" %>
+        <%= image_tag "object1.jpg", class:"side-image" %>
       </div>
-    </header>
-    <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    </main>
     <footer>
       <div class="under-ber">
         <%= link_to "Stencil", "#" %>
