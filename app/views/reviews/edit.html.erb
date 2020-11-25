@@ -1,0 +1,28 @@
+<div class="review-form">
+  <%= form_with model: @review, url:reviews_path, local: true do |f| %>
+    
+    <div class="form-upper">
+        <label for="title">Title: </label>
+        <%= f.text_field :title, class:"titme-form", id:"book-title", placeholder:" 必須(10文字まで)", maxlength:"20" %>
+    </div>
+
+    <div class="form-middle">
+      <label for="image" class="select-btn">Cover: </label>
+      <%= f.file_field :image, class:"image-form", id:"book-image" %>
+    </div>
+    <div class="form-bottom">
+      <div class="form-content">
+        <label for="category">Category: </label>
+        <%= f.collection_select(:category, [], :id, :name, {}, {class:"select-box", id:"book-category"}) %>
+      </div>
+      <div class="form-content">
+        <label for="time_limit">Time Limit: </label>
+          <P>7日</p>
+        </div>
+    </div>
+    <div class="form-box">
+      <%= f.text_area :text, class:"text-form", id:"review-title", placeholder:"2000文字まで登録できます", maxlength:"2000" %>
+    </div>
+    <%= f.submit "Review" ,class:"submit-btn" %>
+  <% end %>
+</div>
