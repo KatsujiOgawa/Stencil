@@ -20,7 +20,7 @@ textarea{
 
 main{
   padding-top: 20px;
-  height:calc(85vh - 20px);
+  height: 85vh;
   display: flex;
   justify-content: space-between;
 }
@@ -49,7 +49,7 @@ main{
 
 .side-image{
   width: 6vw;
-  height:calc(85vh - 20px);
+  height: 85vh;
   padding-right: 1vw;
 }
 
@@ -63,22 +63,22 @@ main{
 footer{
   display: flex;
   justify-content: center;
-  height: 15vh;
-  // background-color: lightcyan;
 }
 
 .under-ber{
+  // background-color: lightcyan;
   width: 100%;
   margin: 20px 0px;
   padding: 10px;
   display: flex;
-  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
   border-top: #666666 1px solid;
 }
 
 footer a{
-font-size: 45px;
-padding-right: 40px;
+font-size: 30px;
+padding:0 20px 0 20px;
 }
 
 // 共通部分↑
