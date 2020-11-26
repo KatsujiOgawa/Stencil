@@ -13,9 +13,14 @@
     <main>
       <div class="side-bar">
         <%= link_to "About", "#" %>
-        <%= link_to "Sign up", "#" %>
-        <%= link_to "Login", "#" %>
-        <%= link_to "Review", new_review_path %>
+        <% if user_signed_in? %>
+          <%= link_to "Write", new_review_path %>
+          <%= link_to "Reviews", reviews_path %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %>
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
       </div>
       <div class="image-area">
         <%= image_tag "object.jpg", class:"side-image" %>

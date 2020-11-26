@@ -1,4 +1,8 @@
 // 共通部分↓
+html{
+  // background-color: aliceblue;
+}
+
 a{
   text-decoration: none;
   list-style: none;
@@ -33,6 +37,7 @@ main{
   border-right: #666666 1px solid;
   display: flex;
   justify-content: space-around;
+  background-color: aliceblue;
 }
 
 .side-bar a{
@@ -56,7 +61,7 @@ main{
 
 .container{
   width: 100%;
-  // background-color: lightgoldenrodyellow;
+  // background-color: aliceblue;
   padding-right: 3vw;
 }
 
@@ -66,7 +71,7 @@ footer{
 }
 
 .under-ber{
-  // background-color: lightcyan;
+  background-color: aliceblue;
   width: 100%;
   margin: 20px 0px;
   padding: 10px;
@@ -102,23 +107,28 @@ padding:0 20px 0 20px;
 
 // 新規投稿ページレイアウト部分↓
 
-.review-form{
-  width: 100%;
-  height: 100%;
+.review-container{
+  // background-color: aliceblue;
+  height: calc(100% - 46px);
+  overflow: scroll;
 }
 
-.form-upper{
+.review-upper{
   display: flex;
-  justify-content: flex-start;
+  justify-content:flex-start;
   border-bottom: #666666 1px solid;
   align-items: center;
   font-size: 25px;
   // background-color: beige;
 }
 
-.form-middle{
+.title-form{
+  background-color: transparent;
+}
+
+.review-middle{
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   border-bottom: #666666 1px solid;
   padding: 10px;
@@ -126,9 +136,15 @@ padding:0 20px 0 20px;
   font-size: 13px;
 }
 
-.form-bottom{
+.select-box{
+  background-color: transparent;
+}
+
+.review-bottom{
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-around;
+  align-items: center;
+  padding: 5px 0px;
   border-bottom: #666666 1px solid;
   // background-color: blanchedalmond;
 }
@@ -137,19 +153,16 @@ label{
   padding-right: 1vw;
 }
 
-.form-content{
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 13px;
-  padding: 10px;
+.review-content{
+  font-size: 16px;
 }
 
-.form-box{
+.review-box{
   // background-color: cornsilk;
   height: 60vh;
-  height:calc(85vh - 200px);
+  height:calc(85vh - 214px);
   margin-bottom: 10px;
+  border-bottom: #666666 1px solid;
 }
 
 .text-form{
@@ -158,18 +171,19 @@ label{
   height: 100%;
   width: 100%;
   font-size: 12px;
+  background-color: transparent;
   // border-bottom: #666666 1px solid;
 } 
 
 .submit-btn{
   height: 30px;
-  width: 100%;
+  width: 120px;
   font-size: 13px;
   color: white;
   background-color: #666666;
 }
 // 新規投稿ページレイアウト部分↑
-// 投稿詳細ページ
+// 投稿一覧ページ
 
 .index-container{
   width: 100%;
@@ -178,13 +192,8 @@ label{
   // background-color:red;
 }
 
-.index-heading{
-  font-size: 30px;
-  text-align: center;
-  border-bottom: #666666 1px solid;
-}
 
-.review-table{
+.index-table{
   overflow: scroll;
   height: calc(100% - 55px);
   width: 100%;
@@ -192,16 +201,20 @@ label{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  margin-top: 10px;
 }
 
-.review-content{
-  padding-bottom: 25px;
-  text-align: center;
-}
 
 .index-cover{
   padding: 0px 15px;
   height: 300px;
   width: 217px;
 }
+
+.index-content{
+  font-size: 14px;
+  text-align: center;
+  padding: 10px 0 10px 0 ;
+}
+
+// 投稿一覧ページ
+// 投稿詳細ページ
