@@ -218,3 +218,50 @@ font-size: 30px;
 
 // 投稿一覧ページ
 // 投稿詳細ページ
+
+.review-show-container{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  height: calc(100% - 66px);
+  width: 100%;
+}
+
+.review-show-left{
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+  width: 35%;
+  height: 100%;
+  border-right: #666666 1px solid;
+}
+
+
+.review-show-right{
+  overflow-y: scroll;
+  width:calc(65% - 1vw);
+  height:calc(100% - 20px);
+}
+
+
+.show-cover{
+  padding-top: 3vh;
+  height: 300px;
+  width: 217px;
+}
+
+.review-show-info{
+  padding-top: 20px;
+}
+
+.review-show-content{
+  font-size: 15px;
+  padding-bottom: 15px;
+}
+
+.review-show-text{
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+  font-size: 15px;
+  padding: 18px 1vw 0 1vw;
+}
