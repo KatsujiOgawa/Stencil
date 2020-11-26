@@ -32,7 +32,9 @@
     </main>
     <footer>
       <div class="under-ber">
-        <%= link_to "UserNickname", user_path(current_user) %>
+        <% if user_signed_in? %>
+          <%= link_to current_user.name, user_path(current_user) %>
+        <%end%>
         <p class="footer-limit">レビュー期限 :７日</p>
         <%= link_to "Stencil", root_path %>
       </div>

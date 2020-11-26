@@ -1,9 +1,14 @@
-<h1 class="user_edit heading">Edit user<%= resource_name.to_s.humanize %></h1>
+<h1 class="user_edit heading">Edit user</h1>
 
 <div class="user-container">
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="user-field">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: current_user.name %>
+    </div>
 
     <div class="user-field">
       <%= f.label :email %><br />
@@ -35,5 +40,7 @@
       <%= f.submit "Update" , class: "submit-btn"%>
     </div>
   <% end %>
-  <%= link_to "Back", :back %>
 </div>
+
+
+<%# <%= resource_name.to_s.humanize %>

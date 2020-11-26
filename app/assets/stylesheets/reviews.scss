@@ -23,7 +23,7 @@ textarea{
 }
 
 main{
-  padding-top: 20px;
+  padding: 20px 0;
   height: 85vh;
   display: flex;
   justify-content: space-between;
@@ -62,7 +62,7 @@ main{
 .container{
   width: 100%;
   // background-color: aliceblue;
-  padding-right: 3vw;
+  padding-right: 1vw;
 }
 
 footer{
@@ -73,8 +73,8 @@ footer{
 .under-ber{
   background-color: aliceblue;
   width: 100%;
-  margin: 20px 0px;
-  padding: 10px;
+  // margin: 20px 0px;
+  padding: 2vh 3vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +83,7 @@ footer{
 
 footer a{
 font-size: 30px;
-padding:0 20px 0 20px;
+// padding:0 20px 0 20px;
 }
 
 // 共通部分↑
@@ -206,8 +206,8 @@ padding:0 20px 0 20px;
 
 .index-cover{
   padding: 0px 15px;
-  height: 300px;
-  width: 217px;
+  height: 270px;
+  width: 187px;
 }
 
 .index-content{
