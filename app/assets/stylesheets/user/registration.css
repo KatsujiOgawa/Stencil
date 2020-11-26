@@ -10,7 +10,7 @@
 .user-container{
   overflow: scroll;
   height: calc(100% - 145px);
-  /* background-color: aliceblue; */
+  /* background-color: khaki; */
   /* display: flex;
   justify-content: space-around; */
   text-align: center;
@@ -55,4 +55,61 @@
 
 em{
   font-size: 12px;
+}
+
+/* ユーザー編集ページ */
+/* ユーザー詳細ページ */
+
+.user-show-left{
+  height: 100%;
+  width: 70%;
+  padding-right: 1vw;
+  border-right: #666666 1px solid;
+}
+
+.user-show-list-heading{
+  padding-bottom: 10px;
+  font-size: 18px;
+}
+
+.user-show-right{
+  height: 100%;
+  width: 30%;
+}
+
+.follow-table{
+  overflow: scroll;
+  height: calc(100% - 55px);
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.user-container-show{
+  height: calc(100% - 145px);
+  /* background-color: khaki; */
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  padding: 30px 0px;
+}
+
+.follow-content{
+ padding: 0.7vh 0;
+ font-size: 13px;
+}
+
+.user-edit-link{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.user-edit-link a{ 
+  height: 30px;
+  width: 120px;
+  font-size: 13px;
+  color: white;
+  background-color: #666666;
+  text-align: center;
+  line-height: 30px;
 }
