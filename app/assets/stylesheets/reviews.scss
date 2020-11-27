@@ -163,6 +163,21 @@ font-size: 30px;
   height:calc(85vh - 214px);
   margin-bottom: 10px;
   border-bottom: #666666 1px solid;
+  
+}
+
+.review-error{
+  display: flex;
+  justify-content: center;
+  border-bottom: #666666 1px solid;
+}
+
+.review-error li{
+  color: coral;
+  font-size: 10px;
+  padding-right: 10px;
+  display: inline;
+  line-height: 24px;
 }
 
 .text-form{
@@ -172,7 +187,6 @@ font-size: 30px;
   width: 100%;
   font-size: 12px;
   background-color: transparent;
-  // border-bottom: #666666 1px solid;
 } 
 
 .submit-btn{

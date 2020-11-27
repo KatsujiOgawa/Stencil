@@ -10,7 +10,7 @@ class Review < ApplicationRecord
   with_options presence: true do
     validates :title, :text, :image
   end
-  validates :title, length: { in: 1..15 }
+  validates :title, length: { maximum: 15 }
   
   with_options numericality: { other_than: 1 } do
     validates :category_id, :limit_id
