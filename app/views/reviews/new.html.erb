@@ -14,7 +14,7 @@
     <div class="review-bottom">
       <div class="review-content">
         <label for="category">Category: </label>
-        <%= f.collection_select(:category, [], :id, :name, {}, {class:"select-box", id:"book-category"}) %>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"book-category"}) %>
       </div>
       <div class="review-content">
         <label for="time_limit">Time Limit: </label>
