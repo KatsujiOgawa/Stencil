@@ -24,16 +24,16 @@
 | title             | string     | null: false                    |
 | text              | text       | null: false                    |
 | category_id       | integer    | null: false                    |
-| time_limit        | integer    | null: false                    |
+| limit_id          | integer    | null: false                    |
 | user              | references | null: false, foreign_key: true |
-<!-- time_limitはJavaScriptを用いて、非同期通信の日数カウントダウンを行う -->
+<!-- limitはJavaScriptを用いて、非同期通信の日数カウントダウンを行う -->
 <!-- Active Storageを用いて、imageの追加予定 -->
 
 ### Association
 
 - has_many :comments
 - belongs_to :user
-<!-- - belongs_to :relationship　アソシエーション組む可能性あり -->
+<!-- - belongs_to :relationship アソシエーション組む可能性あり -->
 
 ## Relationships テーブル
 
