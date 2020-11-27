@@ -24,7 +24,7 @@
       <%= render partial: "error_messages", locals: { model: @review }  %>
     </div>
     <div class="review-box">
-      <%= f.text_area :text, class:"text-form", id:"review-title", placeholder:"2000文字まで登録できます", maxlength:"2000" %>
+      <%= f.text_area :text, class:"text-form", id:"review-text", placeholder:"2000文字まで登録できます", maxlength:"2000" %>
     </div>
 
     <%= f.submit "Review" ,class:"submit-btn" %>

@@ -11,8 +11,9 @@ class Review < ApplicationRecord
     validates :title, :text, :image
   end
   validates :title, length: { maximum: 15 }
+  validates :text, length: { maximum: 2000 }
   
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 1 , message: "isn't selected"} do
     validates :category_id, :limit_id
   end
   
