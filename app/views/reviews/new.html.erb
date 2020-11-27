@@ -17,8 +17,8 @@
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"book-category"}) %>
       </div>
       <div class="review-content">
-        <label for="time_limit">Time Limit: </label>
-        <%= f.collection_select(:time_limit, [], :id, :name, {}, {class:"select-box", id:"time_limit"}) %>
+        <label for="limit">Time Limit: </label>
+        <%= f.collection_select(:limit_id, Limit.all, :id, :name, {}, {class:"select-box", id:"limit"}) %>
         </div>
     </div>
     <div class="review-box">
