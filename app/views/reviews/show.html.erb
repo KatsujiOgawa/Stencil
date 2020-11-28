@@ -12,13 +12,28 @@
         <h1>Time limit : <%= @review.limit.name %></h1>
       </li>
       <li class="review-show-content">
+        <h1>Created at : <%= @review.created_at.to_s(:datetime_jp) %></h1>
+      </li>
+      <li class="review-show-content">
         <%= image_tag @review.image, class:"show-cover" %>
       </li>
       <li class="review-show-content">
-        <h1>Created at : <%= @review.created_at %></h1>
+        <% if current_user == @review.user %>
+          <div class="link-btn">
+              <%= link_to "Edit", edit_review_path(@review)%>
+          </div>
+          <div class="link-btn">
+              <%= link_to "Delete", review_path(@review), {method: :DELETE} %>
+          </div>
+        <% else %>
+          <div class="link-btn">
+              <%= link_to "Edit", edit_review_path(@review)%>
+          </div>
+        <% end %>
       </li>
     </ul>
   </div>
+
   <div class="review-show-right">
     <div class="review-show-text">
       <p class="review-paragraph">

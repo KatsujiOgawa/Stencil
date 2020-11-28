@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:top, :about]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+
+  def about
+
+  end
 
   def top
   end
@@ -20,6 +24,11 @@ class ReviewsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @review.destroy
+    redirect_to reviews_path
   end
 
   def edit
