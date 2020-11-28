@@ -278,22 +278,22 @@ footer a{
   justify-content: center;
   align-items: center;
   overflow-y: scroll;
-  width: 40%;
-  height: 100%;
+  width: 35%;
+  height: calc(100% + 30px);
   border-right: #666666 1px solid;
 }
 
 
 .review-show-right{
   overflow-y: scroll;
-  width: 60%;
+  width: 65%;
   height: 100%;
   padding: 0 2vw ;
 }
 
 
 .show-cover{
-  padding: 1vh 0;
+  padding: 1vh 0 2vh 0;
   // height: 300px;
   // width: 217px;
   width : 65%;
@@ -308,7 +308,7 @@ footer a{
 .review-show-content{
   font-size: 13px;
   overflow-y: scroll;
-  padding-bottom: 0.5vh;
+  padding-bottom: 0.7vh;
   display: flex;
   justify-content: space-around;
 }

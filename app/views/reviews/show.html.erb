@@ -27,7 +27,7 @@
           </div>
         <% else %>
           <div class="link-btn">
-              <%= link_to "Edit", edit_review_path(@review)%>
+              <%= link_to "Reviewer Page", user_path(@review.user)%>
           </div>
         <% end %>
       </li>
