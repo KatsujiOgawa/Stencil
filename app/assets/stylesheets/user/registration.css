@@ -1,20 +1,29 @@
+*{
+  box-sizing: border-box;
+}
 
 .heading{
-  font-size: 30px;
+  font-size: 20px;
+  width: calc(100% - 1vw);
+  height: 38px;
+  line-height: 38px;
+  margin-left: 1vw;
   text-align: center;
   border-bottom: #666666 1px solid;
   background-color: aliceblue;
+  overflow: scroll;
+  white-space: nowrap;
 }
+
 
 
 .user-container{
   overflow: scroll;
-  height: calc(100% - 145px);
+  height: calc(100% - 38px);
   /* background-color: khaki; */
-  /* display: flex;
-  justify-content: space-around; */
+  padding-top: 30px;
+  padding-left: 1vw;
   text-align: center;
-  padding: 50px 0px;
 }
 
 .user-field{
@@ -42,7 +51,7 @@
 }
 
 .error-space{
-  padding: 50px 0px 40px 0px;
+  padding-bottom: 20px;
 }
 
 
@@ -85,12 +94,13 @@ em{
 }
 
 .user-container-show{
-  height: calc(100% - 145px);
+  height: calc(100% - 30px);
   /* background-color: khaki; */
   display: flex;
   justify-content: space-around;
   text-align: center;
   padding: 30px 0px;
+  
 }
 
 .follow-content{

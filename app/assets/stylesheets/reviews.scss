@@ -9,6 +9,10 @@ a{
   color: #666666;
 }
 
+p {
+  white-space: pre-wrap;
+}
+
 input {
   border: none;
   outline: none;
@@ -19,20 +23,22 @@ textarea{
 }
 
 *{
+  box-sizing: border-box;
   color: #666666;
 }
 
+
 main{
-  padding: 20px 0;
+  padding-bottom: 20px;
   height: 85vh;
+  width: 100vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .side-bar{
-  display: flex;
   padding: 0 15px 0 15px;
-  width:80px;
+  width: 80px;
   writing-mode: vertical-rl;
   border-right: #666666 1px solid;
   display: flex;
@@ -42,11 +48,12 @@ main{
 
 .side-bar a{
   font-size: 17px;
-  width: 30%;
 }
 
 .image-area{
-  margin-left: 3vw;
+  // padding-left: 1vw;
+  height: 100%;
+  width: 12vw;
   display: flex;
   justify-content: flex-start;
 }
@@ -54,27 +61,28 @@ main{
 
 .side-image{
   width: 6vw;
-  height: 85vh;
-  padding-right: 1vw;
+  height: 100%;
+  padding-left: 1vw;
 }
 
 
 .container{
-  width: 100%;
   // background-color: aliceblue;
-  padding-right: 1vw;
+  width: calc(100vw - 12vw - 80px);
 }
 
 footer{
   display: flex;
   justify-content: center;
+  height: 15vh;
+  width: 100%;
 }
 
 .under-ber{
   background-color: aliceblue;
+  height: 100%;
   width: 100%;
-  // margin: 20px 0px;
-  padding: 2vh 3vw;
+  padding: 3vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -82,8 +90,20 @@ footer{
 }
 
 footer a{
-font-size: 30px;
-// padding:0 20px 0 20px;
+  font-size: 30px;
+}
+
+
+.heading{
+  font-size: 20px;
+  width: 100%;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-bottom: #666666 1px solid;
+  background-color: aliceblue;
+  overflow: scroll;
+  white-space: nowrap;
 }
 
 // 共通部分↑
@@ -91,26 +111,25 @@ font-size: 30px;
 
 
 .root-container{
-  margin-right: 40px;
-  // background-color: lightpink;
   display: flex;
   justify-content: flex-start;
+  height: 100%;
+  overflow: hidden;
 }
 
-.root-image{
-  width: 35%;
-  height:calc(85vh - 17px);
-  margin-right: 20px;
-}
 
 // Topページレイアウト部分↑
 
 // 新規投稿ページレイアウト部分↓
 
 .review-container{
+  text-align: center;
   // background-color: aliceblue;
-  height: calc(100% - 46px);
-  overflow: scroll;
+  height: calc(100% - 38px);
+  width: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-left: 1vw;
 }
 
 .review-upper{
@@ -162,7 +181,7 @@ font-size: 30px;
 .review-box{
   // background-color: cornsilk;
   height: 60vh;
-  height:calc(85vh - 214px);
+  height:calc(85vh - 230px);
   margin-bottom: 10px;
   border-bottom: #666666 1px solid;
   
@@ -222,8 +241,8 @@ font-size: 30px;
 
 .index-cover{
   padding: 0px 15px;
-  height: 270px;
-  width: 187px;
+  height: 250px;
+  width: 195px;
 }
 
 .index-content{
@@ -238,14 +257,16 @@ font-size: 30px;
 .review-show-container{
   display: flex;
   justify-content: center;
+  // align-items: center;
   padding-top: 20px;
   height: calc(100% - 66px);
-  width: 100%;
+  width: calc(100vw - 12vw - 80px);
 }
 
 .review-show-left{
   display: flex;
   justify-content: center;
+  align-items: center;
   overflow-y: scroll;
   width: 35%;
   height: 100%;
@@ -255,29 +276,30 @@ font-size: 30px;
 
 .review-show-right{
   overflow-y: scroll;
-  width:calc(65% - 1vw);
-  height:calc(100% - 20px);
+  width: calc(100vw - 12vw - 80px);
+  height: 100%;
 }
 
 
 .show-cover{
-  padding-top: 3vh;
-  height: 300px;
-  width: 217px;
+  padding: 3vh 0;
+  // height: 300px;
+  // width: 217px;
+  width: 75%;
 }
 
 .review-show-info{
   padding-top: 20px;
+  text-align: center;
 }
 
 .review-show-content{
-  font-size: 15px;
-  padding-bottom: 15px;
+  font-size: 13px;
+  overflow-y: scroll;
+  // padding-bottom: 12px;
 }
 
 .review-show-text{
-  overflow-y: scroll;
-  overflow-wrap: break-word;
-  font-size: 15px;
-  padding: 18px 1vw 0 1vw;
+  font-size: 13px;
+  padding: 0px 1vw 0 1vw;
 }
