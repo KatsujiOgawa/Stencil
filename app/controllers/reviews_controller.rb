@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!, except: [:top, :about]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
+  before_action :stranger_prevent, only: [:edit, :destroy]
   def about
 
   end
@@ -45,6 +45,12 @@ class ReviewsController < ApplicationController
    
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def stranger_prevent
+    unless @review.user == current_user
+      redirect_to root_path
+    end
   end
 
 end
