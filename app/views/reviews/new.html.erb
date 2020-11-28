@@ -1,6 +1,6 @@
 <h1 class="heading">Write Review</h1>
 <div class="review-container">
-  <%= form_with model: @review, url:reviews_path, local: true do |f| %>    
+  <%= form_with model: @review, url:reviews_path, local: true, class: "form-review" do |f| %>    
     <div class="review-upper">
         <label for="title">Title: </label>
         <%= f.text_field :title, class:"title-form", id:"book-title", placeholder:" 必須 20文字まで", maxlength:"20", autofocus: true %>
