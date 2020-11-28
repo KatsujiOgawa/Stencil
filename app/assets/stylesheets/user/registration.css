@@ -51,7 +51,7 @@
 }
 
 .error-space{
-  padding-bottom: 20px;
+  padding: 35px 0 20px 0 ;
 }
 
 
@@ -108,13 +108,13 @@ em{
  font-size: 13px;
 }
 
-.user-edit-link{
+.link-btn{
   display: flex;
   justify-content: center;
   width: 100%;
 }
 
-.user-edit-link a{ 
+.link-btn a{ 
   height: 30px;
   width: 120px;
   font-size: 13px;

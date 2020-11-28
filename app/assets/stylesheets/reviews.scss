@@ -279,37 +279,42 @@ footer a{
   align-items: center;
   overflow-y: scroll;
   width: 35%;
-  height: 100%;
+  height: calc(100% + 30px);
   border-right: #666666 1px solid;
 }
 
 
 .review-show-right{
   overflow-y: scroll;
-  width: calc(100vw - 12vw - 80px);
+  width: 65%;
   height: 100%;
+  padding: 0 2vw ;
 }
 
 
 .show-cover{
-  padding: 3vh 0;
+  padding: 1vh 0 2vh 0;
   // height: 300px;
   // width: 217px;
-  width: 75%;
+  width : 65%;
 }
 
 .review-show-info{
-  padding-top: 20px;
+  padding-top: 10px;
   text-align: center;
+  height: 90%;
 }
 
 .review-show-content{
   font-size: 13px;
   overflow-y: scroll;
-  // padding-bottom: 12px;
+  padding-bottom: 0.7vh;
+  display: flex;
+  justify-content: space-around;
 }
 
 .review-show-text{
   font-size: 13px;
   padding: 0px 1vw 0 1vw;
 }
+

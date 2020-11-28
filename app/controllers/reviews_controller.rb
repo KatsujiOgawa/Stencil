@@ -1,6 +1,10 @@
 class ReviewsController < ApplicationController
-
+  before_action :authenticate_user!, except: [:top, :about]
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :stranger_prevent, only: [:edit, :destroy]
+  def about
+
+  end
 
   def top
   end
@@ -22,7 +26,20 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review.destroy
+    redirect_to reviews_path
+  end
+
   def edit
+  end
+
+  def update
+    if @review.update(review_params)
+      redirect_to review_path(@review)
+    else
+      render :edit
+    end
   end
 
   def show
@@ -36,6 +53,12 @@ class ReviewsController < ApplicationController
    
   def set_review
     @review = Review.find(params[:id])
+  end
+
+  def stranger_prevent
+    unless @review.user == current_user
+      redirect_to root_path
+    end
   end
 
 end
