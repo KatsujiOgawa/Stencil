@@ -125,7 +125,7 @@ em{
 }
 
 
-/* 
+
 .show-link-btn{
   display: flex;
   justify-content: center;
@@ -133,11 +133,11 @@ em{
 }
 
 .show-link-btn a{ 
-  height: 30px;
+  height: 23px;
   width: 60px;
-  font-size: 12px;
+  font-size: 11px;
   color: white;
   background-color: #666666;
   text-align: center;
-  line-height: 30px;
-} */
+  line-height: 23px;
+}

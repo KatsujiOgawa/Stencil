@@ -44,7 +44,7 @@ class ReviewsController < ApplicationController
 
   def show
     @comment = Comment.new
-    # @comments = @review.comments.includes(:user)
+    @comments = @review.comments.includes(:user)
   end
   
 
