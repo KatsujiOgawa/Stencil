@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   belongs_to :limit
 
   belongs_to :user
-  has_many :comments
+  has_many :comments, foreign_key: :review_id, dependent: :destroy
   has_one_attached :image
 
 
