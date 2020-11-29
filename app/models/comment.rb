@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :user
-  belongs_to :review, foreign_key: :review_id, dependent: :destroy
+  belongs_to :review
 
   validates :comment, presence: true, length: {maximum: 50 } 
 end

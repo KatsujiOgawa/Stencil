@@ -124,20 +124,3 @@ em{
   line-height: 30px;
 }
 
-
-
-.show-link-btn{
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.show-link-btn a{ 
-  height: 23px;
-  width: 60px;
-  font-size: 11px;
-  color: white;
-  background-color: #666666;
-  text-align: center;
-  line-height: 23px;
-}
