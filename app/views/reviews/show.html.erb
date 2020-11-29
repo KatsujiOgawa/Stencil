@@ -44,7 +44,7 @@
 
     <%= form_with(model: @comment, url: review_comments_path(@review), local: true, class: "form-comment") do |f| %>
       <%= f.text_area :comment, class:"comment-text", id:"review-text", placeholder:"50文字までコメントできます", maxlength:"50" %>
-      <%= f.submit "comment" ,class:"comment-btn" %>
+      <%= f.submit "Comment" ,class:"comment-btn" %>
     <% end %>
 
   <div class="comment-index">
