@@ -269,7 +269,7 @@ footer a{
   justify-content: center;
   // align-items: center;
   padding-top: 20px;
-  height: calc(100% - 66px);
+  height: calc(100% - 80px);
   width: calc(100vw - 12vw - 80px);
 }
 
@@ -279,7 +279,7 @@ footer a{
   align-items: center;
   overflow-y: scroll;
   width: 35%;
-  height: calc(100% + 30px);
+  height: 100%;
   border-right: #666666 1px solid;
 }
 
@@ -318,3 +318,31 @@ footer a{
   padding: 0px 1vw 0 1vw;
 }
 
+.form-comment{
+  // background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 21px;
+}
+
+.comment-text{
+  padding-left: 10px;
+  font-size: 11px;
+  margin-right: 5px;
+  height: 20px;
+  width: 85%;
+  outline: none;
+}
+
+
+
+.comment-btn{ 
+  height: 20px;
+  width: 60px;
+  font-size: 10px;
+  color: white;
+  background-color: #666666;
+  text-align: center;
+  line-height: 21px;
+}
