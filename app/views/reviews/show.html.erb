@@ -1,44 +1,69 @@
 <h1 class="heading"> <%= @review.title %></h1>
-<div class="review-show-container">
-  <div class="review-show-left">
-    <ul class="review-show-info">
-      <li class="review-show-content">
-        <h1>Category : <%= @review.category.name %></h1>
-      </li>
-      <li class="review-show-content">
-        <h1>Reviewer : <%= @review.user.name %></h1>
-      </li>
-      <li class="review-show-content">
-        <h1>Time limit : <%= @review.limit.name %></h1>
-      </li>
-      <li class="review-show-content">
-        <h1>Created at : <%= @review.created_at.to_s(:datetime_jp) %></h1>
-      </li>
-      <li class="review-show-content">
-        <%= image_tag @review.image, class:"show-cover" %>
-      </li>
-      <li class="review-show-content">
-        <% if current_user == @review.user %>
-          <div class="link-btn">
-              <%= link_to "Edit", edit_review_path(@review)%>
-          </div>
-          <div class="link-btn">
-              <%= link_to "Delete", review_path(@review), {method: :DELETE} %>
-          </div>
-        <% else %>
-          <div class="link-btn">
-              <%= link_to "ReviewerPage", user_path(@review.user)%>
-          </div>
-        <% end %>
-      </li>
-    </ul>
-  </div>
+<div class="review-show">
+  <div class="review-show-container">
+    <div class="review-show-left">
+      <ul class="review-show-info">
+        <li class="review-show-content">
+          <h1>Category : <%= @review.category.name %></h1>
+        </li>
+        <li class="review-show-content">
+          <h1>Reviewer : <%= @review.user.name %></h1>
+        </li>
+        <li class="review-show-content">
+          <h1>Time limit : <%= @review.limit.name %></h1>
+        </li>
+        <li class="review-show-content">
+          <h1>Created at : <%= @review.created_at.to_s(:datetime_jp) %></h1>
+        </li>
+        <li class="review-show-content">
+          <%= image_tag @review.image, class:"show-cover" %>
+        </li>
+        <li class="review-show-content">
+          <% if current_user == @review.user %>
+            <div class="show-link-btn">
+                <%= link_to "Edit", edit_review_path(@review)%>
+            </div>
+            <div class="show-link-btn">
+                <%= link_to "Delete", review_path(@review), {method: :DELETE} %>
+            </div>
+          <% else %>
+            <div class="show-link-btn">
+                <%= link_to "Reviewer", user_path(@review.user)%>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    </div>
 
-  <div class="review-show-right">
-    <div class="review-show-text">
-      <p class="review-paragraph">
-        <%= @review.text %>
-      </p>
+    <div class="review-show-right">
+      <div class="review-show-text">
+        <p class="review-paragraph"><%= @review.text %></p>
+      </div>
     </div>
   </div>
+
+    <%= form_with(model: @comment, url: review_comments_path(@review), local: true, class: "form-comment") do |f| %>
+      <%= f.text_area :comment, class:"comment-text", id:"review-text", placeholder:"50文字までコメントできます", maxlength:"50" %>
+      <%= f.submit "comment" ,class:"comment-btn" %>
+    <% end %>
+
+  <div class="comment-index">
+    <h1 class="comment-heading"><%= "Comments" %></h1>
+    <% @comments.each do |comment| %>
+      <ul class="comment-table">
+        <li>
+          <%# <div class="comment-info"> %>
+            <%=link_to comment.user.name, user_path(comment.user)  %>
+            <h2><%= comment.comment %></h2>
+          <%# </div> %>
+          <% if current_user.id == comment.user_id %>
+            <div class="show-link-btn">
+                <%= link_to "Delete", review_comment_path(comment), {method: :DELETE} %>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+    <% end %>
+  </div>
+
 </div>
