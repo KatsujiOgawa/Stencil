@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
 
-  resources :relationships, only: [:create, :destroy]
   resources :users, only: [:show]
+  resources :relationships, only: [:create, :destroy]
 end

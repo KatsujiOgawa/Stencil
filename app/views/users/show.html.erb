@@ -4,7 +4,7 @@
 <div class="user-container">
   <div class="user-container-show">
     <div class="user-show-left">
-    <h1 class="user-show-list-heading">Review list</h1>
+    <h1 class="user-show-list-heading">Reviews</h1>
       <ul class="index-table">
         <li class="index-content">
           <%= link_to "#" do %>
@@ -121,56 +121,21 @@
       </ul>
     </div>  
     <div class="user-show-right">
-      <h1 class="user-show-list-heading">Follow list</h1>
+      <h1 class="user-show-list-heading">Following</h1>
       <ul class="follow-table">
+      <% @user.followings.each do |following| %>
         <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
+          <%=link_to following.name, user_path(following) %>
         </li>
+        <% end %>
+      </ul>
+      <h1 class="user-show-list-heading">Follower</h1>
+      <ul class="follow-table">
+      <% @user.followers.each do |follower| %>
         <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
+          <%=link_to follower.name, user_path(follower) %>
         </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
-        <li class="follow-content">
-          <%= link_to 'FollowName', "#" %>
-        </li>
+        <% end %>
       </ul>
     </div>  
   </div>
