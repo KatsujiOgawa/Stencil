@@ -3,125 +3,24 @@
 
 <div class="user-container">
   <div class="user-container-show">
+
     <div class="user-show-left">
-    <h1 class="user-show-list-heading">Reviews</h1>
+      <h1 class="user-show-list-heading">Reviews</h1>
       <ul class="index-table">
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
-        <li class="index-content">
-          <%= link_to "#" do %>
-          <%= image_tag "index_cover.jpg", class:"index-cover" %>
-          <h6><%= 'ランチェスター戦略「営業」大全' %></h6>
-          <h6><%= 'Katsuji' %></h6>
-          <% end %>
-        </li>
+        <% @user.reviews.each do |review| %>
+          <li class="index-content">
+            <%= link_to review_path(review) do %>
+              <%= image_tag review.image, class:"index-cover" %>
+              <h6><%= review.title %></h6>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>  
+
     <div class="user-show-right">
       <h1 class="user-show-list-heading">Following</h1>
+      
       <ul class="follow-table">
       <% @user.followings.each do |following| %>
         <li class="follow-content">
@@ -129,6 +28,7 @@
         </li>
         <% end %>
       </ul>
+
       <h1 class="user-show-list-heading">Follower</h1>
       <ul class="follow-table">
       <% @user.followers.each do |follower| %>
@@ -138,6 +38,7 @@
         <% end %>
       </ul>
     </div>  
+
   </div>
 
   <div class="link-btn">
