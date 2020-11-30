@@ -88,9 +88,10 @@ em{
 
 .follow-table{
   overflow: scroll;
-  height: calc(100% - 55px);
+  height: calc(50% - 45px);
   width: 100%;
   flex-wrap: wrap;
+  margin-bottom: 2vh;
 }
 
 .user-container-show{
@@ -104,8 +105,12 @@ em{
 }
 
 .follow-content{
- padding: 0.7vh 0;
- font-size: 13px;
+  padding: 0.2vh 0;
+  font-size: 13px;
+  border-bottom: #666666 1px solid;
+  margin: 10px 3vw;
+  background-color: aliceblue;
+  word-wrap: break-word;
 }
 
 .link-btn{
