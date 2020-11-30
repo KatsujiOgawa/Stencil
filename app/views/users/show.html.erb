@@ -23,19 +23,23 @@
       
       <ul class="follow-table">
       <% @user.followings.each do |following| %>
-        <li class="follow-content">
-          <%=link_to following.name, user_path(following) %>
-        </li>
-        <% end %>
+        <%=link_to user_path(following) do %>
+          <li class="follow-content">
+            <%= following.name %>
+          </li>
+          <% end %>
+      <% end %>
       </ul>
 
       <h1 class="user-show-list-heading">Follower</h1>
       <ul class="follow-table">
       <% @user.followers.each do |follower| %>
-        <li class="follow-content">
-          <%=link_to follower.name, user_path(follower) %>
-        </li>
+        <%=link_to user_path(follower) do %>
+          <li class="follow-content">
+            <%= follower.name %>
+          </li>
         <% end %>
+      <% end %>
       </ul>
     </div>  
 
