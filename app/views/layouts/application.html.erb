@@ -35,8 +35,10 @@
       <div class="under-ber">
         <% if user_signed_in? %>
           <%= link_to current_user.name, user_path(current_user) %>
+            <% @last_reviews.each do |last_review| %>
+            <p class="footer-limit">最終投稿日：<%= last_review.created_at.to_s(:datetime_jp) %></p>
+          <% end %>
         <%end%>
-        <p class="footer-limit">レビュー期限 :７日</p>
         <%= link_to "Stencil", root_path %>
       </div>
     </footer>
