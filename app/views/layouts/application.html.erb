@@ -35,9 +35,7 @@
       <div class="under-ber">
         <% if user_signed_in? %>
           <%= link_to current_user.name, user_path(current_user) %>
-            <% @last_reviews.each do |last_review| %>
-            <p class="footer-limit">最終投稿日：<%= last_review.created_at.to_s(:datetime_jp) %></p>
-          <% end %>
+            <p class="footer-limit" ,id="limit_date" >"<%= @last_review.title %>"の期日：<%= @limit_date.to_s(:datetime_jp) %></p>
         <%end%>
         <%= link_to "Stencil", root_path %>
       </div>
