@@ -1,11 +1,13 @@
 window.addEventListener('load', function(){
-  var sec = 86400;
+  const createDt = document.getElementById("limitdate")
+  const reviewId = createDt.getAttribute("data-id")
+  const days = 86400 * reviewId;
   let dt = new Date();
-  let endDt = new Date(dt.getTime() + sec * 1000);
+  let endDt = new Date(dt.getTime() + days * 1000);
   console.log( dt)
   console.log(endDt)
-
-  let cnt = sec;
+  console.log(reviewId)
+  let cnt = days;
   let id = setInterval(function(){
     cnt--;
     console.log(cnt);
