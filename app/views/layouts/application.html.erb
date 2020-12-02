@@ -35,7 +35,9 @@
       <div class="under-ber">
         <% if user_signed_in? %>
           <%= link_to current_user.name, user_path(current_user) %>
-            <p class="footer-limit", id="limitdate" data-id=<%= @last_review.limit_id %>>"<%= @last_review.title %>"の期日：<%= @limit_date.to_s(:datetime_jp) %></p>
+          <%= link_to review_path(@last_review) do %>
+            <p class="footer-limit", id="limit_date" data-limit_id=<%= @last_review.limit_id %> data-created_at=<%= @last_review.created_at %>></p>
+          <% end %>
         <%end%>
         <%= link_to "Stencil", root_path %>
       </div>
