@@ -33,11 +33,13 @@
     </main>
     <footer>
       <div class="under-ber">
-        <% if user_signed_in? %>
+        <% if user_signed_in?  %>
           <%= link_to current_user.name, user_path(current_user) %>
-          <%= link_to review_path(@last_review) do %>
-            <p class="footer-limit", id="limit_date" data-limit_id=<%= @last_review.limit_id %> data-created_at=<%= @last_review.created_at %>></p>
-          <% end %>
+          <% if @last_review %>
+            <%= link_to review_path(@last_review) do %>
+              <p><%= @last_review.title %> : </p><p class="footer-limit", id="limit_date" data-limit_id=<%= @last_review.limit_id %> data-created_at=<%= @last_review.created_at %>></p>
+            <% end %>
+          <%end%>
         <%end%>
         <%= link_to "Stencil", root_path %>
       </div>
