@@ -10,7 +10,7 @@
         <% @user.reviews.each do |review| %>
           <li class="index-content">
             <%= link_to review_path(review) do %>
-              <%= image_tag review.image, class:"index-cover" %>
+              <%= image_tag review.image, class:"index-cover" if review.image.attached? %>
               <h6><%= review.title %></h6>
             <% end %>
           </li>
@@ -44,22 +44,11 @@
     </div>  
 
   </div>
-
-  <div class="link-btn">
-    <% if current_user == @user %>
-      <%= link_to "Edit", edit_user_registration_path(@user)%>
-    <% else %>
-      <% if current_user.following?(@user) %>
-        <%= form_for(current_user.relationships.find_by(follow_id: @user.id), html: { method: :delete }) do |f| %>
-          <%= hidden_field_tag :follow_id, @user.id %>
-          <%= f.submit 'Unfollow', class: 'submit-btn' %>
-        <% end %>
+    <div class="link-btn">
+      <% if current_user == @user %>
+        <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
       <% else %>
-        <%= form_for(current_user.relationships.build) do |f| %>
-          <%= hidden_field_tag :follow_id, @user.id %>
-          <%= f.submit 'Follow', class: 'submit-btn' %>
-        <% end %>
+        <%=render partial: "follow_btn", locals: { user: @user} %>
       <% end %>
-    <% end %>
-  </div>  
+    </div>
 </div>
