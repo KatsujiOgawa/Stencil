@@ -10,9 +10,6 @@
           <h1>Reviewer : <%= @review.user.name %></h1>
         </li>
         <li class="review-show-content">
-          <h1>Time limit : <%= @review.limit.name %></h1>
-        </li>
-        <li class="review-show-content">
           <h1>( <%= @review.created_at.to_s(:datetime_jp) %> 投稿)</h1>
         </li>
         <li class="review-show-content">
@@ -31,6 +28,9 @@
                 <%= link_to "Reviewer", user_path(@review.user)%>
             </div>
           <% end %>
+        </li>
+        <li class="review-show-content">
+          <p class="limit", id="limit_date" data-limit_id=<%= @review.limit_id %> data-created_at=<%= @review.created_at %>>期限</p>
         </li>
       </ul>
     </div>
