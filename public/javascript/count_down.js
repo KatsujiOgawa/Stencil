@@ -23,7 +23,6 @@ window.addEventListener('load', function(){
     // console.log(untilLimit);
     console.log(`${d}日${h}時間${m}分${s}秒`);
     
-    
     // 現在日時と終了日時を比較
     dt = new Date();
     if(dt.getTime() < endDt){
@@ -39,6 +38,7 @@ window.addEventListener('load', function(){
     }
   }, 1000);
 })
+
 
 
 // ・修正点予定ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
