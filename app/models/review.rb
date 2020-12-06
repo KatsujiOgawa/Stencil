@@ -19,4 +19,14 @@ class Review < ApplicationRecord
   end
   
 
+  def self.search(search)
+    if search != "1"
+      Review.where(category_id: search)
+    else
+      Review.all
+    end
+    
+  end
+
+
 end

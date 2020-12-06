@@ -47,6 +47,9 @@ class ReviewsController < ApplicationController
     @comments = @review.comments.includes(:user)
   end
   
+  def search
+    @reviews = Review.search(params[:category_id])
+  end
 
   private
   def review_params

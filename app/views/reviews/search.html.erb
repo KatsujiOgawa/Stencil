@@ -2,7 +2,6 @@
 <div class="index-container">
   <div class="search-object">
     <%= form_with(url: search_reviews_path, local: true, method: :get, class: "search-form") do |f| %>
-        <%= "Category :"  %>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"book-category"}) %>
         <%= f.submit "検索", class: "search-btn" %>
     <% end %> 
@@ -19,4 +18,3 @@
     <% end %>
   </ul>
 </div>  
-
