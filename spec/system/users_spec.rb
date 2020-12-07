@@ -1,4 +1,3 @@
-
 require 'rails_helper'
 
 RSpec.describe 'ユーザー新規登録', type: :system do
@@ -30,8 +29,6 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       # ログアウトボタンとユーザー名が表示されている
       expect(page).to have_content('Logout')
       expect(page).to have_content(@user.name)
-    
-      
     end
   end
   context 'ユーザー新規登録ができないとき' do
