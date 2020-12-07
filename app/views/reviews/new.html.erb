@@ -2,16 +2,16 @@
 <div class="review-container">
   <%= form_with model: @review, url:reviews_path, local: true, class: "form-review" do |f| %>    
     <div class="review-upper">
-        <label for="title">Title</label>
+        <label for="book-title">Title</label>
         <%= f.text_field :title, class:"title-form", id:"book-title", placeholder:" 必須 20文字まで", maxlength:"20", autofocus: true %>
     </div>
     <div class="review-middle">
-      <label for="image" class="select-btn">Cover</label>
+      <label for="book-image" class="select-btn">Cover</label>
       <%= f.file_field :image, class:"image-form", id:"book-image" %>
     </div>
     <div class="review-bottom">
       <div class="review-content">
-        <label for="category">Category</label>
+        <label for="book-category">Category</label>
         <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"book-category"}) %>
       </div>
       <div class="review-content">
@@ -23,7 +23,7 @@
       <%= render partial: "error_messages", locals: { model: @review }  %>
     </div>
     <div class="review-box">
-      <label for="text">
+      <label for="review-text">
         <%= f.text_area :text, class:"text-form", id:"review-text", placeholder:"2000文字まで登録できます", maxlength:"2000" %>
       </label>
     </div>
