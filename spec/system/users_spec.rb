@@ -24,9 +24,13 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       }.to change { User.count }.by(1)
       # トップページへ遷移する
       visit root_path
-      # サインアップページへ遷移するボタンや、ログインページへ遷移するボタンが表示されていることを確認する
+      # サインアップページ、ログインページへのリンクボタンがない事を確認
+      expect(page).to have_no_content('Sign up')
+      expect(page).to have_no_content('Login')
+      # ログアウトボタンとユーザー名が表示されている
       expect(page).to have_content('Logout')
       expect(page).to have_content(@user.name)
+    
       
     end
   end
@@ -49,6 +53,53 @@ RSpec.describe 'ユーザー新規登録', type: :system do
       }.to change { User.count }.by(0)
       # 新規登録ページへ戻されることを確認する
       expect(current_path).to eq "/users"
+    end
+  end
+end
+
+RSpec.describe 'ログイン', type: :system do
+  before do
+    @user = FactoryBot.create(:user)
+  end
+  context 'ログインができるとき' do
+    it '既存ユーザーの情報とログイン情報が合致すればログイン可能' do
+      # トップページに移動
+      visit root_path
+      # トップページにログインページへリンクボタンがある
+      expect(page).to have_content('Login')
+      # ログインページへ遷移
+      visit new_user_session_path
+      # 正しいユーザー情報を入力する
+      fill_in 'Email', with: @user.email
+      fill_in 'Password', with: @user.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # トップページへ遷移
+      expect(current_path).to eq root_path
+      # サインアップ,ログインページへのリンクボタンが表示されない
+      expect(page).to have_no_content('Sign up')
+      expect(page).to have_no_content('Login')
+      # ログアウトボタン、ユーザー名が表示される
+      expect(page).to have_content('Logout')
+      expect(page).to have_content(@user.name)
+      
+    end
+  end
+  context 'ログインができないとき' do
+    it '保存されているユーザーの情報と合致しないとログインができない' do
+      # トップページに移動
+      visit root_path
+      # トップページにログインページへ遷移するボタンがあることを確認する
+      expect(page).to have_content("Login")
+      # ログインページへ遷移
+      visit new_user_session_path
+      # ユーザー情報を入力
+      fill_in 'Email', with: ""
+      fill_in 'Password', with: ""
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # ログインページへ遷移
+      expect(current_path).to eq new_user_session_path
     end
   end
 end
