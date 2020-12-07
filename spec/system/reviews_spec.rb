@@ -68,6 +68,7 @@ RSpec.describe 'ツイート投稿', type: :system do
       # トップページに遷移
       visit root_path
       # 新規投稿リンクがない
+
       expect(page).to have_no_content("Write")
     end
     it "投稿内容に不備があると投稿できない" do
