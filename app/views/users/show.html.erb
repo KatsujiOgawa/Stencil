@@ -2,8 +2,8 @@
 
 
 <div class="user-container">
-  <div class="user-container-show">
 
+  <div class="user-container-show">
     <div class="user-show-left">
       <h1 class="user-show-list-heading">Reviews</h1>
       <ul class="index-table">
@@ -42,13 +42,13 @@
       <% end %>
       </ul>
     </div>  
-
   </div>
-    <div class="link-btn">
-      <% if current_user == @user %>
-        <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
-      <% else %>
-        <%=render partial: "follow_btn", locals: { user: @user} %>
-      <% end %>
-    </div>
+
+  <div class="link-btn">
+    <% if current_user == @user %>
+      <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
+    <% else %>
+      <%=render partial: "follow_btn", locals: { user: @user} %>
+    <% end %>
+  </div>
 </div>
