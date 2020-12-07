@@ -1,11 +1,11 @@
 require 'rails_helper'
 
-RSpec.describe 'ツイート投稿', type: :system do
+RSpec.describe '新規投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
     
   end
-  context 'ツイート投稿ができるとき'do
+  context '新規投稿ができるとき'do
     it 'ログインしたユーザーは新規投稿できる' do
       #ログイン
       visit new_user_session_path
@@ -29,7 +29,7 @@ RSpec.describe 'ツイート投稿', type: :system do
       title = "ランチェスター戦略"
       fill_in 'Title', with: title
       
-      # カテゴリーIDを選択
+      # カテゴリーを選択
       select '経済/ビジネス', from: 'Category'
 
       # limit_idを選択
@@ -63,7 +63,7 @@ RSpec.describe 'ツイート投稿', type: :system do
       expect(page).to have_content(@user.name)
     end
   end
-  context 'ツイート投稿ができないとき'do
+  context '新規投稿ができないとき'do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移
       visit root_path
@@ -94,6 +94,118 @@ RSpec.describe 'ツイート投稿', type: :system do
       }.to change { Review.count }.by(0)
 
       expect(current_path).to eq "/reviews" 
+    end
+  end
+end
+
+
+
+RSpec.describe '投稿編集', type: :system do
+  before do
+    @review1 = FactoryBot.create(:review)
+    @review2 = FactoryBot.create(:review)
+    sleep 0.2
+  end
+  context '投稿編集ができるとき' do
+    it 'ログインしたユーザーは自分が投稿した投稿の編集ができる' do
+      # 投稿1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @review1.user.email
+      fill_in 'Password', with: @review1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # 投稿詳細ページに遷移
+      visit review_path(@review1)
+      #「編集」ボタンがあることを確認する
+      expect(page).to have_link 'Edit', href: edit_review_path(@review1)
+      # 編集ページへ遷移する
+      visit edit_review_path(@review1)
+      # すでに投稿済みの内容がフォームに入っていることを確認する
+      expect(
+        find('#book-title').value
+      ).to eq @review1.title
+
+      expect(
+        find('#book-category').value
+      ).to eq @review1.category_id.to_s  
+      
+      expect(
+        find('#limit').value
+      ).to eq @review1.limit_id.to_s
+      
+      expect(
+        find('#review-text').value
+      ).to eq @review1.text
+      
+      # 投稿内容を編集する
+      image_path2 = Rails.root.join('public/images/sample.jpg')
+      attach_file('review[image]', image_path2, make_visible: true)
+      
+      # タイトルの投稿情報を定義し、入力
+      title2 = "嫌われる勇気"
+      fill_in 'Title', with: title2
+      
+      # カテゴリーIDを選択
+      select '自己啓発', from: 'Category'
+
+      # limit_idを選択
+      select '７日間', from: 'Time Limit'
+
+      # textの投稿情報を定義して入力
+      text2 = "職場では、上司の顔色をうかがったり、上司によく思われたいと考えたりして、気持ちを曲げて発言する人がいます。
+      同僚などとの横のつながりでも、自分がどう思われるのかをいつも気にして、嫌われないようにする。
+      なるべく目立たないようにしようとする人も少なくありません。
+      普及が進む「フェイスブック」などのSNSでも、メッセージを書き込む際に、「いいね！」を押してほしいと思って、“受ける”メッセージを書いてしまう。
+      押してもらえないと残念なので、迎合して、自分の真意でもないことを書く。
+      インターネットやスマートフォンが普及して周囲とつながる機会が増える中、嫌われることを恐れる人が増えているように思います。
+      だからこそ、嫌われる勇気というタイトルが一番響くのではないかと考えました。"
+      fill_in 'review-text', with: text2
+     
+      # 編集してもカウントが変化しない
+      expect{
+        find('input[name="commit"]').click
+      }.to change { Review.count }.by(0)
+      # 投稿詳細ページに遷移
+      expect(current_path).to eq review_path(@review1)
+
+
+
+
+      # 投稿詳細ページには編集後の投稿が存在することを確認する（画像）
+      expect(page).to have_selector ("img")
+
+
+      # 投稿詳細ページには編集後の投稿が存在することを確認する（タイトル）
+      expect(page).to have_content(title2)
+      # 投稿詳細ページには編集後の投稿が存在することを確認する（投稿者名）
+      expect(page).to have_content(@review1.user.name)
+      # 投稿詳細ページには編集後の投稿が存在することを確認する（カテゴリー）
+      expect(page).to have_content(@review1.category.name)
+      # 投稿詳細ページには編集後の投稿が存在することを確認する（テキスト）
+      expect(page).to have_content(text2)
+    end
+  end
+  context '投稿編集ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿した投稿の編集画面には遷移できない' do
+
+      # 投稿1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @review1.user.email
+      fill_in 'Password', with: @review1.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      
+      # 投稿2の詳細画面に遷移
+      visit review_path(@review2)
+      
+      # 投稿2にEditリンクがないことを確認する
+      expect(page).to have_no_link 'Edit', href: edit_review_path(@review2)
+      
+    end
+    it 'ログインしていないと投稿を見ることができない(編集画面に遷移できない)' do
+      # トップページにいる
+      visit root_path
+      expect(page).to have_no_link 'Review', href: reviews_path
     end
   end
 end
