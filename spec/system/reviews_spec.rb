@@ -208,11 +208,11 @@ end
 
 
 RSpec.describe '投稿削除', type: :system do
+  before do
+    @review = FactoryBot.create(:review)
+    sleep 0.2
+  end
   context '投稿削除ができるとき' do
-    before do
-      @review = FactoryBot.create(:review)
-      sleep 0.2
-    end
     
     it 'ログインしたユーザーは自分の投稿が削除できる' do
       #投稿したユーザーでログインする
@@ -233,13 +233,13 @@ RSpec.describe '投稿削除', type: :system do
     end
 
     it 'ユーザーは自分以外の投稿削除ができない' do
-      # ツイート1を投稿したユーザーでログインする
+      # 投稿1を投稿したユーザーでログインする
       visit new_user_session_path
       fill_in 'Email', with: @review.user.email
       fill_in 'Password', with: @review.user.password
       find('input[name="commit"]').click
       expect(current_path).to eq root_path
-      # ツイート2に「削除」ボタンが無いことを確認する
+      # 投稿2に「削除」ボタンが無いことを確認する
       expect(page).to have_no_link 'Delete', href: review_path(@review)
     end
 
@@ -249,4 +249,15 @@ RSpec.describe '投稿削除', type: :system do
       expect(page).to have_no_link 'Review', href: reviews_path
     end
   end
+
+
+  RSpec.describe '投稿削除', type: :system do
+    context '投稿削除ができるとき' do
+      before do
+        @review = FactoryBot.create(:review)
+        sleep 0.2
+      end
+    end
+  end
+
 end
