@@ -208,12 +208,12 @@ end
 
 
 RSpec.describe '投稿削除', type: :system do
-  before do
-    @review = FactoryBot.create(:review)
-    sleep 0.2
-  end
+  
   context '投稿削除ができるとき' do
-    
+    before do
+      @review = FactoryBot.create(:review)
+      sleep 0.2
+    end
     it 'ログインしたユーザーは自分の投稿が削除できる' do
       #投稿したユーザーでログインする
       visit new_user_session_path
@@ -249,15 +249,4 @@ RSpec.describe '投稿削除', type: :system do
       expect(page).to have_no_link 'Review', href: reviews_path
     end
   end
-
-
-  RSpec.describe '投稿削除', type: :system do
-    context '投稿削除ができるとき' do
-      before do
-        @review = FactoryBot.create(:review)
-        sleep 0.2
-      end
-    end
-  end
-
 end
