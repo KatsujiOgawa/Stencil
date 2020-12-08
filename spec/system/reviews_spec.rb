@@ -243,7 +243,7 @@ RSpec.describe '投稿削除', type: :system do
       expect(page).to have_no_link 'Delete', href: review_path(@review)
     end
 
-    it 'ログインしていないと投稿を見ることができない(投稿一覧画面へのリンクが存在しない為、投稿詳細画面及び編集画面に遷移できない)' do
+    it 'ログインしていないと投稿を見ることができない(投稿一覧画面へのリンクが存在しない為、投稿詳細画面への遷移及び削除ができない)' do
       # トップページにいる
       visit root_path
       expect(page).to have_no_link 'Review', href: reviews_path
