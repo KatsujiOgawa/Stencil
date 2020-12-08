@@ -98,8 +98,6 @@ RSpec.describe '新規投稿', type: :system do
   end
 end
 
-
-
 RSpec.describe '投稿編集', type: :system do
   before do
     @review1 = FactoryBot.create(:review)
@@ -167,10 +165,6 @@ RSpec.describe '投稿編集', type: :system do
       }.to change { Review.count }.by(0)
       # 投稿詳細ページに遷移
       expect(current_path).to eq review_path(@review1)
-
-
-
-
       # 投稿詳細ページには編集後の投稿が存在することを確認する（画像）
       expect(page).to have_selector ("img")
 
@@ -185,6 +179,8 @@ RSpec.describe '投稿編集', type: :system do
       expect(page).to have_content(text2)
     end
   end
+
+
   context '投稿編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿した投稿の編集画面には遷移できない' do
 
@@ -202,7 +198,52 @@ RSpec.describe '投稿編集', type: :system do
       expect(page).to have_no_link 'Edit', href: edit_review_path(@review2)
       
     end
-    it 'ログインしていないと投稿を見ることができない(編集画面に遷移できない)' do
+    it 'ログインしていないと投稿を見ることができない(投稿一覧画面へのリンクが存在しない為、投稿詳細画面及び編集画面に遷移できない)' do
+      # トップページにいる
+      visit root_path
+      expect(page).to have_no_link 'Review', href: reviews_path
+    end
+  end
+end
+
+
+RSpec.describe '投稿削除', type: :system do
+  context '投稿削除ができるとき' do
+    before do
+      @review = FactoryBot.create(:review)
+      sleep 0.2
+    end
+    
+    it 'ログインしたユーザーは自分の投稿が削除できる' do
+      #投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @review.user.email
+      fill_in 'Password', with: @review.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # 投稿詳細画面に遷移
+      visit review_path(@review)
+      # 投稿にDeleteリンクがあることを確認する
+      expect(page).to have_link 'Delete', href: review_path(@review)
+      # DeleteボタンをクリックするとReviewモデルのカウントが１減る事を確認
+      expect{
+        find_link('Delete', href: review_path(@review)).click
+      }.to change { Review.count }.by(-1)
+      expect(current_path).to eq reviews_path
+    end
+
+    it 'ユーザーは自分以外の投稿削除ができない' do
+      # ツイート1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'Email', with: @review.user.email
+      fill_in 'Password', with: @review.user.password
+      find('input[name="commit"]').click
+      expect(current_path).to eq root_path
+      # ツイート2に「削除」ボタンが無いことを確認する
+      expect(page).to have_no_link 'Delete', href: review_path(@review)
+    end
+
+    it 'ログインしていないと投稿を見ることができない(投稿一覧画面へのリンクが存在しない為、投稿詳細画面への遷移及び削除ができない)' do
       # トップページにいる
       visit root_path
       expect(page).to have_no_link 'Review', href: reviews_path
