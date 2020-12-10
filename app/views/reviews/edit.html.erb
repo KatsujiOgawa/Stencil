@@ -16,7 +16,7 @@
       </div>
       <div class="review-content">
         <label for="limit">Time Limit</label>
-        <%= f.collection_select(:limit_id, Limit.all, :id, :name, {}, {class:"select-box", id:"limit"}) %>
+          <%= @review.limit.name %>
         </div>
     </div>
     <div class="review-error">
