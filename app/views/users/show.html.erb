@@ -26,6 +26,7 @@
         <%=link_to user_path(following) do %>
           <li class="follow-content">
             <%= following.name %>
+            <%= @last_review.created_at %>
           </li>
           <% end %>
       <% end %>
@@ -37,6 +38,8 @@
         <%=link_to user_path(follower) do %>
           <li class="follow-content">
             <%= follower.name %>
+            <%= @last_review.created_at %>
+
           </li>
         <% end %>
       <% end %>
