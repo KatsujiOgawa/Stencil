@@ -11,6 +11,10 @@
         </li>
         <li class="review-show-content">
           <h1>( <%= @review.created_at.to_s(:datetime_jp) %> 投稿)</h1>
+
+        </li>
+        <li class="review-show-content">
+          <p style="color: coral;">完成期限 : </p><p style="color: coral;" id="another_limit_date"  data-another_limit_id=<%= @review.limit_id%> data-another_created_at=<%= @review.created_at.strftime('%Y/%m/%d/%H:%M:%S') %>></p>
         </li>
         <li class="review-show-content">
           <%= image_tag @review.image, class:"show-cover" if @review.image.attached? %>
