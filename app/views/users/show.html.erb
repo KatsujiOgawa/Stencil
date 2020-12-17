@@ -1,15 +1,22 @@
+<script src="/javascript/user_show_tab.js"></script>
 <h1 class="heading"><%= @user.name %></h1>
-<div class="user-container">
-  <div class="user-container-show">
-    <div class="user-show-left">
-      <%= render partial: "show_index_tab", locals: {user: @user} %>
-    </div>  
+<div class="user-container" id="show-tab">
+  <div class = "select-tab">
+    <a href="#" data-nav="0">Reviews</a>
+    /
+    <a href="#" data-nav="1">Following & Followers</a>
+  </div>
 
-    <div class="user-show-right">
+  <div class="user-container-show">
+    <div class="user-show-left" id="index_tab" data-content="0" style=":display: none;">
+      <%= render partial: "show_index_tab", locals: {user: @user} %>
+    </div>
+
+    <div class="user-show-right" id="follow_tab" data-content="1" style=":display: none;">
       <%= render partial: "show_follow_tab", locals: {user: @user} %>
     </div>  
   </div>
-  
+
   <div class="link-btn">
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
