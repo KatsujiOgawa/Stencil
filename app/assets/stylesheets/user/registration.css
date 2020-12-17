@@ -71,7 +71,7 @@ em{
 
 .user-show-left{
   height: 100%;
-  width: 70%;
+  width: 100%;
   padding-right: 1vw;
   display: none;
 }
@@ -93,26 +93,27 @@ color:rgb(190, 190, 190);
 
 .follow-container{
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
 .follow-table{
   overflow: scroll;
   height: calc(50% - 45px);
-  width: 580px;
+  width: 500px;
   flex-wrap: wrap;
   margin-bottom: 2vh;
 }
 
 .user-container-show{
   height: calc(100% - 60px);
+  width: 100%;
   overflow: scroll;
   /* background-color: khaki; */
   display: flex;
   justify-content: space-around;
   text-align: center;
-  padding-top: 30px;
+  padding: 30px 20px 0px 20px;
   margin-bottom: 20px ;
   
 }
