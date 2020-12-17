@@ -38,8 +38,7 @@
         <%=link_to user_path(follower) do %>
           <li class="follow-content">
             <%= follower.name %>
-            <%# <%= @last_review.created_at %>
-
+            <p style="color: coral;">最終投稿：<%= time_ago_in_words(Review.where(user_id: follower.id).last.created_at)%></p>
           </li>
         <% end %>
       <% end %>
