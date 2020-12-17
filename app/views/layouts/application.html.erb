@@ -39,7 +39,7 @@
           <%= link_to current_user.name, user_path(current_user) %>
           <% if @last_review %>
             <%= link_to review_path(@last_review) do %>
-              <p class="footer-limit"><%= @last_review.title %>: </p><p class="footer-limit", id="limit_date" data-limit_id=<%= @last_review.limit_id %> data-created_at=<%= @last_review.created_at.strftime('%Y/%m/%d/%H:%M:%S') %>></p>
+              <p class="footer-limit"><%= @last_review.title %> : </p><p class="footer-limit", id="limit_date" data-limit_id=<%= @last_review.limit_id %> data-created_at=<%= @last_review.created_at.strftime('%Y/%m/%d/%H:%M:%S') %>></p>
             <% end %>
           <%end%>
         <%end%>

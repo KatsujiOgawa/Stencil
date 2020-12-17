@@ -1,13 +1,13 @@
 
 window.addEventListener('load', function(){
   // 最新投稿の定義
-  const lastReview = document.getElementById("following_limit_date")
+  const lastReview = document.getElementById("another_limit_date")
   // 設定したタイムリミットを取得し、エポックミリ秒換算
-  const limitId = lastReview.getAttribute("data-following_limit_id")
+  const limitId = lastReview.getAttribute("data-another_limit_id")
   const oneDay = 24 * 60 * 60 * 1000;
   const days = oneDay * limitId;
   // 最新の投稿日時を定義
-  let createDt = lastReview.getAttribute("data-following_created_at");
+  let createDt = lastReview.getAttribute("data-another_created_at");
   let startDt = new Date(createDt);
   let startSec = startDt.getTime()
   
