@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     @guest_user = User.guest
     @user = User.find(params[:id])
     
+    # binding.pry
   end
 
  

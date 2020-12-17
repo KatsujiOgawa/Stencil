@@ -25,8 +25,8 @@
       <% @user.followings.each do |following| %>
         <%=link_to user_path(following) do %>
           <li class="follow-content">
-            <%= following.name %>
-            <%= @last_review.created_at %>
+            <%= following.name %><br/>
+            <p style="color: coral;">最終投稿：<%= time_ago_in_words(Review.where(user_id: following.id).last.created_at)%></p>
           </li>
           <% end %>
       <% end %>
@@ -38,7 +38,7 @@
         <%=link_to user_path(follower) do %>
           <li class="follow-content">
             <%= follower.name %>
-            <%= @last_review.created_at %>
+            <%# <%= @last_review.created_at %>
 
           </li>
         <% end %>

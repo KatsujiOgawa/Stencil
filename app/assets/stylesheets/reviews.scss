@@ -95,9 +95,9 @@ footer a{
 }
 
 
-footer p{
+.footer-limit{
   display: inline;
-  font-size: 13px;
+  font-size: 15px;
   color: coral;
 }
 
@@ -338,11 +338,11 @@ footer p{
 }
 
 .review-show-content{
-  font-size: 10px;
+  font-size: 13px;
   overflow-y: scroll;
   padding-bottom: 1vh;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .limit{
