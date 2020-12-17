@@ -1,48 +1,19 @@
+<script src="/javascript/user_show_tab.js"></script>
 <h1 class="heading"><%= @user.name %></h1>
-
-
-<div class="user-container">
+<div class="user-container" id="show-tab">
+  <div class = "select-tab">
+    <a href="#" data-nav="0">Reviews</a>
+    /
+    <a href="#" data-nav="1">Following & Followers</a>
+  </div>
 
   <div class="user-container-show">
-    <div class="user-show-left">
-      <h1 class="user-show-list-heading">Reviews</h1>
-      <ul class="index-table">
-        <% @user.reviews.each do |review| %>
-          <li class="index-content">
-            <%= link_to review_path(review) do %>
-              <%= image_tag review.image, class:"index-cover" if review.image.attached? %>
-              <h6><%= review.title %></h6>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
-    </div>  
+    <div class="user-show-left" id="index_tab" data-content="0" style=":display: none;">
+      <%= render partial: "show_index_tab", locals: {user: @user} %>
+    </div>
 
-    <div class="user-show-right">
-      <h1 class="user-show-list-heading">Following</h1>
-      
-      <ul class="follow-table">
-      <% @user.followings.each do |following| %>
-        <%=link_to user_path(following) do %>
-          <li class="follow-content">
-            <%= following.name %><br/>
-            <p style="color: coral;"><%= time_ago_in_words(Review.where(user_id: following.id).last.created_at)%>前 / 期限 : <%= Review.where(user_id: following.id).last.limit_id %>日</p>
-          </li>
-          <% end %>
-      <% end %>
-      </ul>
-
-      <h1 class="user-show-list-heading">Follower</h1>
-      <ul class="follow-table">
-      <% @user.followers.each do |follower| %>
-        <%=link_to user_path(follower) do %>
-          <li class="follow-content">
-            <%= follower.name %>
-            <p style="color: coral;"><%= time_ago_in_words(Review.where(user_id: follower.id).last.created_at)%>前 / 期限 : <%= Review.where(user_id: follower.id).last.limit_id %>日</p>
-          </li>
-        <% end %>
-      <% end %>
-      </ul>
+    <div class="user-show-right" id="follow_tab" data-content="1" style=":display: none;">
+      <%= render partial: "show_follow_tab", locals: {user: @user} %>
     </div>  
   </div>
 
@@ -50,7 +21,7 @@
     <% if current_user == @user %>
       <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
     <% else %>
-      <%=render partial: "follow_btn", locals: { user: @user} %>
+      <%= render partial: "follow_btn", locals: { user: @user} %>
     <% end %>
   </div>
 </div>

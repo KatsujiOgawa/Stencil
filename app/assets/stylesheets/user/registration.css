@@ -73,7 +73,11 @@ em{
   height: 100%;
   width: 70%;
   padding-right: 1vw;
-  border-right: #666666 1px solid;
+  display: none;
+}
+
+.selected-tab{
+color:rgb(190, 190, 190);
 }
 
 .user-show-list-heading{
@@ -83,13 +87,20 @@ em{
 
 .user-show-right{
   height: 100%;
-  width: 30%;
+  width: 100%;
+  display: none;
+}
+
+.follow-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .follow-table{
   overflow: scroll;
   height: calc(50% - 45px);
-  width: 100%;
+  width: 580px;
   flex-wrap: wrap;
   margin-bottom: 2vh;
 }
@@ -108,7 +119,7 @@ em{
 
 .follow-content{
   padding: 0.2vh 0;
-  font-size: 13px;
+  font-size: 16px;
   border-bottom: #666666 1px solid;
   margin: 10px 3vw;
   background-color: aliceblue;
