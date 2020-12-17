@@ -1,0 +1,11 @@
+<h1 class="user-show-list-heading">Reviews</h1>
+      <ul class="index-table">
+        <% user.reviews.each do |review| %>
+          <li class="index-content">
+            <%= link_to review_path(review) do %>
+              <%= image_tag review.image, class:"index-cover" if review.image.attached? %>
+              <h6><%= review.title %></h6>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
