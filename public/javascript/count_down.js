@@ -5,6 +5,7 @@ window.addEventListener('load', function(){
   const oneDay = 24 * 60 * 60 * 1000;
   const days = oneDay * limitId;
   let createDt = latestReview.getAttribute("data-created_at");
+  console.log(createDt);
   let startDt = new Date(createDt);
   let startSec = startDt.getTime()
   
