@@ -2,9 +2,9 @@
 <h1 class="heading"><%= @user.name %></h1>
 <div class="user-container" id="show-tab">
   <div class = "select-tab">
-    <a href="#" data-nav="0">Reviews</a>
+    <%= link_to "Reviews" , "#", data: {nav: '0'} %>
     /
-    <a href="#" data-nav="1">Following & Followers</a>
+    <%= link_to "Following&Follower" , "#", data: {nav: '1'} %>
   </div>
 
   <div class="user-container-show">
