@@ -4,6 +4,9 @@
     <div class="review-show-left">
       <ul class="review-show-info">
         <li class="review-show-content">
+          <%= image_tag @review.image, class:"show-cover" if @review.image.attached? %>
+        </li>
+        <li class="review-show-content">
           <h1>Category : <%= @review.category.name %></h1>
         </li>
         <li class="review-show-content">
@@ -15,9 +18,6 @@
         </li>
         <li class="review-show-content">
           <p style="color: coral;">完成期限 : </p><p style="color: coral;" id="another_limit_date"  data-another_limit_id=<%= @review.limit_id%> data-another_created_at=<%= @review.created_at.strftime('%Y/%m/%d/%H:%M:%S') %>></p>
-        </li>
-        <li class="review-show-content">
-          <%= image_tag @review.image, class:"show-cover" if @review.image.attached? %>
         </li>
         <li class="review-show-content">
           <% if current_user == @review.user %>
@@ -34,37 +34,35 @@
           <% end %>
         </li>
       </ul>
-    </div>
 
-    <div class="review-show-right">
       <div class="review-show-text">
         <p class="review-paragraph"><%= @review.text %></p>
       </div>
     </div>
+    <div class="comment-index">
+      <h1 class="comment-heading">Comments</h1>
+      <%= form_with(model: @comment, url: review_comments_path(@review), local: true, class: "form-comment") do |f| %>
+        <%= f.text_area :comment, class:"comment-text", id:"comment-text", placeholder:"50文字までコメントできます", maxlength:"50" %>
+        <%= f.submit "Comment" ,class:"comment-btn" %>
+      <% end %>
+      <% @comments.each do |comment| %>
+        <ul class="comment-table">
+          <li>
+            <%# <div class="comment-info"> %>
+              <%=link_to comment.user.name, user_path(comment.user)  %>
+              <h2><%= comment.comment %></h2>
+            <%# </div> %>
+            <% if current_user.id == comment.user_id %>
+              <div class="show-link-btn">
+                  <%= link_to "Delete", review_comment_path(comment), {method: :DELETE} %>
+              </div>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
+    </div>
   </div>
 
-    <%= form_with(model: @comment, url: review_comments_path(@review), local: true, class: "form-comment") do |f| %>
-      <%= f.text_area :comment, class:"comment-text", id:"comment-text", placeholder:"50文字までコメントできます", maxlength:"50" %>
-      <%= f.submit "Comment" ,class:"comment-btn" %>
-    <% end %>
 
-  <div class="comment-index">
-    <h1 class="comment-heading"><%= "Comments" %></h1>
-    <% @comments.each do |comment| %>
-      <ul class="comment-table">
-        <li>
-          <%# <div class="comment-info"> %>
-            <%=link_to comment.user.name, user_path(comment.user)  %>
-            <h2><%= comment.comment %></h2>
-          <%# </div> %>
-          <% if current_user.id == comment.user_id %>
-            <div class="show-link-btn">
-                <%= link_to "Delete", review_comment_path(comment), {method: :DELETE} %>
-            </div>
-          <% end %>
-        </li>
-      </ul>
-    <% end %>
-  </div>
 
 </div>
