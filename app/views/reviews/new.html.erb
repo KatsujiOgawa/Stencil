@@ -3,7 +3,7 @@
   <%= form_with model: @review, url:reviews_path, local: true, class: "form-review" do |f| %>    
     <div class="review-upper">
         <label for="book-title">Title</label>
-        <%= f.text_field :title, class:"title-form", id:"book-title", placeholder:" 必須 20文字まで", maxlength:"20", autofocus: true %>
+        <%= f.text_field :title, class:"title-form", id:"book-title", placeholder:" 必須 35文字まで", maxlength:"35", autofocus: true %>
     </div>
     <div class="review-middle">
       <label for="book-image" class="select-btn">Cover</label>
