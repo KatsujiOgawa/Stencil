@@ -80,6 +80,10 @@ em{
 color:rgb(190, 190, 190);
 }
 
+.select-tab{
+font-size: 25px;
+}
+
 .user-show-list-heading{
   padding-bottom: 10px;
   font-size: 18px;
