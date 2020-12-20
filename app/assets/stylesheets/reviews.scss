@@ -31,7 +31,7 @@ textarea{
 
 main{
   padding-bottom: 20px;
-  height: 85vh;
+  height: calc(100vh - 90px);
   width: 100vw;
   display: flex;
   justify-content: flex-start;
@@ -48,7 +48,7 @@ main{
 }
 
 .side-bar a{
-  font-size: 17px;
+  font-size: 22px;
 }
 
 .image-area{
@@ -75,8 +75,9 @@ main{
 footer{
   display: flex;
   justify-content: center;
-  height: 15vh;
+  height: 90px;
   width: 100%;
+  position: fixed;
 }
 
 .under-ber{
@@ -97,17 +98,17 @@ footer a{
 
 .footer-limit{
   display: inline;
-  font-size: 15px;
+  font-size: 18px;
   color: coral;
 }
 
 
 
 .heading{
-  font-size: 20px;
+  font-size: 35px;
   width: calc(100% - 1vw);
-  height: 38px;
-  line-height: 38px;
+  height: 55px;
+  line-height: 55px;
   margin-left: 1vw;
   text-align: center;
   border-bottom: #666666 1px solid;
@@ -115,6 +116,7 @@ footer a{
   overflow: scroll;
   white-space: nowrap;
 }
+
 // 共通部分↑
 // Topページレイアウト部分↓
 
