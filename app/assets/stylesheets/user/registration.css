@@ -19,10 +19,9 @@
 
 .user-container{
   overflow: scroll;
-  height: calc(100% - 38px);
+  height: calc(100% - 55px);
   /* background-color: khaki; */
-  padding-top: 30px;
-  padding-left: 1vw;
+  padding:  0 3vw;
   text-align: center;
 }
 
@@ -77,8 +76,9 @@ em{
 }
 
 .selected-tab{
+  border-radius: 4px;
 color:rgb(190, 190, 190);
-background-color: aqua;
+/* background-color:red; */
 border: 1px solid #666666;
 }
 
@@ -143,11 +143,11 @@ border: 1px solid #666666;
   word-wrap: break-word;
 }
 
-.link-btn{
+.follow-link-btn{
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-top: 20px;
+  /* width: 100%; */
+  margin: 20px 0;
 }
 
 .link-btn a{ 
@@ -159,4 +159,3 @@ border: 1px solid #666666;
   text-align: center;
   line-height: 50px;
 }
-
