@@ -20,22 +20,21 @@
 .user-container{
   overflow: scroll;
   height: calc(100% - 55px);
-  /* background-color: khaki; */
-  padding:  0 3vw;
+  padding:  0 2vw;
   text-align: center;
 }
 
 .user-field{
   text-align: center;
   padding-bottom: 24px;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 .user-field input{
   text-align: center;
   background-color:transparent;
   border-bottom: 1px #666666 solid;
-  font-size: 13px;
+  font-size: 20px;
 }
 
 .user-actions{
@@ -77,15 +76,17 @@ em{
 
 .selected-tab{
   border-radius: 4px;
-color:rgb(190, 190, 190);
-/* background-color:red; */
-border: 1px solid #666666;
+  /* background-color:red; */
+  border: 1px solid #666666;
+  color:rgb(190, 190, 190);
 }
 
 .tab{
   background-color: aliceblue;
   padding: 7px 20px;
+  width: 250px;
   margin: 15px;
+  border-radius: 4px;
   border-bottom: 1px #666666 solid;
   font-size: 20px;
 }
@@ -94,11 +95,8 @@ border: 1px solid #666666;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-}
-
-.user-show-list-heading{
-  padding-bottom: 20px;
-  font-size: 25px;
+  padding-bottom: 15px;
+  border-bottom: #666666 1px solid;
 }
 
 .user-show-right{
@@ -115,10 +113,10 @@ border: 1px solid #666666;
 
 .follow-table{
   overflow: scroll;
-  height: calc(50% - 45px);
-  width: 500px;
+  width: 95%;
   flex-wrap: wrap;
-  margin-bottom: 2vh;
+  padding-top: 30px;
+  /* border-top: 1px solid #666666; */
 }
 
 .user-container-show{
@@ -133,9 +131,10 @@ border: 1px solid #666666;
 
 .follow-content{
   padding: 0.2vh 0;
-  font-size: 16px;
-  border-bottom: #666666 1px solid;
-  margin: 10px 3vw;
+  font-size: 20px;
+  border-bottom: #666666 2px solid;
+  border-radius: 4px;
+  margin: 20px 3vw;
   background-color: aliceblue;
   word-wrap: break-word;
 }
@@ -143,8 +142,19 @@ border: 1px solid #666666;
 .follow-link-btn{
   display: flex;
   justify-content: center;
-  /* width: 100%; */
   margin: 20px 0;
+  border-radius: 4px;
+
+}
+
+.follow-link-btn a{ 
+  height: 40px;
+  width: 140px;
+  font-size: 25px;
+  color: white;
+  background-color: #666666;
+  text-align: center;
+  line-height: 40px;
 }
 
 .link-btn a{ 

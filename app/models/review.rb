@@ -11,10 +11,10 @@ class Review < ApplicationRecord
   with_options presence: true do
     validates :title, :text, :image
   end
-  validates :title, length: { maximum: 20 }
+  validates :title, length: { maximum: 35 }
   validates :text, length: { maximum: 2000 }
   
-  with_options numericality: { other_than: 1 , message: "isn't selected"} do
+  with_options numericality: { other_than: 1 , message: "を選択してください"} do
     validates :category_id, :limit_id
   end
   

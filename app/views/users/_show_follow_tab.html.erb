@@ -1,7 +1,6 @@
 <div class="follow-container">
 
   <ul class="follow-table">
-  <h1 class="user-show-list-heading">フォロー</h1>
   <% user.followings.each do |following| %>
     <%=link_to user_path(following) do %>
       <li class="follow-content">

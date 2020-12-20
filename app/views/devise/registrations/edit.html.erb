@@ -1,9 +1,9 @@
 <h1 class="heading">Edit user</h1>
-
 <div class="user-container">
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="error-space">
     <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
     <div class="user-field">
       <%= f.label :name %><br />
@@ -42,5 +42,3 @@
   <% end %>
 </div>
 
-
-<%# <%= resource_name.to_s.humanize %>
