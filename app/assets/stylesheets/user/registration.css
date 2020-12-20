@@ -78,17 +78,22 @@ em{
 
 .selected-tab{
 color:rgb(190, 190, 190);
+background-color: aqua;
+border: 1px solid #666666;
 }
 
 .tab{
   background-color: aliceblue;
-  padding: 10px 20px;
-  margin-right: 20px;
+  padding: 7px 20px;
+  margin: 15px;
   border-bottom: 1px #666666 solid;
+  font-size: 20px;
 }
 
 .select-tab{
-  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .user-show-list-heading{
