@@ -432,7 +432,6 @@ footer a{
 .show-link-btn{
   display: flex;
   justify-content: center;
-  // width: 100%;
   padding: 15px;
 }
 
@@ -443,13 +442,10 @@ footer a{
   font-size: 18px;
   color: white;
   background-color: #666666;
-  // height: 40px;
-  // width: 120px;
-  // font-size: 20px;
-  // color: white;
-  // background-color: #666666;
-  // text-align: center;
-  // line-height: 40px;
 }
 
-
+.user_new_error{
+  color: coral;
+  padding-bottom: 5px;
+  font-size: 16px;
+}
