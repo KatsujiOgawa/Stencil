@@ -1,5 +1,12 @@
 <script src="/javascript/user_show_tab.js"></script>
 <h1 class="heading"><%= @user.name %></h1>
+  <div class="link-btn">
+    <% if current_user == @user %>
+      <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
+    <% else %>
+      <%= render partial: "follow_btn", locals: { user: @user} %>
+    <% end %>
+  </div>
 <div class="user-container" id="show-tab">
   <div class = "select-tab">
     <a href="#" data-nav="0">Reviews</a>
@@ -17,11 +24,4 @@
     </div>  
   </div>
 
-  <div class="link-btn">
-    <% if current_user == @user %>
-      <%= link_to "Edit", edit_user_registration_path(@user) unless current_user == @guest_user %>
-    <% else %>
-      <%= render partial: "follow_btn", locals: { user: @user} %>
-    <% end %>
-  </div>
 </div>
