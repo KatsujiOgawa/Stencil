@@ -122,10 +122,7 @@ border: 1px solid #666666;
 }
 
 .user-container-show{
-  height: calc(100% - 60px);
-  width: 100%;
   overflow: scroll;
-  /* background-color: khaki; */
   display: flex;
   justify-content: space-around;
   text-align: center;
