@@ -80,13 +80,20 @@ em{
 color:rgb(190, 190, 190);
 }
 
+.tab{
+  background-color: aliceblue;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-bottom: 1px #666666 solid;
+}
+
 .select-tab{
-font-size: 25px;
+  font-size: 25px;
 }
 
 .user-show-list-heading{
-  padding-bottom: 10px;
-  font-size: 18px;
+  padding-bottom: 20px;
+  font-size: 25px;
 }
 
 .user-show-right{
@@ -97,7 +104,7 @@ font-size: 25px;
 
 .follow-container{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
 }
 

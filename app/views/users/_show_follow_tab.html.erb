@@ -1,7 +1,7 @@
 <div class="follow-container">
 
   <ul class="follow-table">
-  <h1 class="user-show-list-heading">Following</h1>
+  <h1 class="user-show-list-heading">フォロー</h1>
   <% user.followings.each do |following| %>
     <%=link_to user_path(following) do %>
       <li class="follow-content">
@@ -9,18 +9,6 @@
         <p style="color: coral;"><%= time_ago_in_words(Review.where(user_id: following.id).last.created_at)%>経過 / 期限 : <%= Review.where(user_id: following.id).last.limit_id %>日</p>
       </li>
       <% end %>
-  <% end %>
-  </ul>
-
-  <ul class="follow-table">
-  <h1 class="user-show-list-heading">Follower</h1>
-  <% user.followers.each do |follower| %>
-    <%=link_to user_path(follower) do %>
-      <li class="follow-content">
-        <%= follower.name %>
-        <p style="color: coral;"><%= time_ago_in_words(Review.where(user_id: follower.id).last.created_at)%>経過 / 期限 : <%= Review.where(user_id: follower.id).last.limit_id %>日</p>
-      </li>
-    <% end %>
   <% end %>
   </ul>
 

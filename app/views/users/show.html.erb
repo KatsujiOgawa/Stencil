@@ -9,9 +9,9 @@
   </div>
 <div class="user-container" id="show-tab">
   <div class = "select-tab">
-    <%= link_to "投稿", "#" , data: {nav: '0'} %>
-    /
-    <%= link_to "フォロー＆フォロワー", "#" , data: {nav: '1'} %>
+    <%= link_to "投稿一覧", "#" , data: {nav: '0'}, class: "tab" %>
+    <%= link_to "フォロー", "#" , data: {nav: '1'}, class: "tab" %>
+    <%= link_to "フォロワー", "#" , data: {nav: '2'}, class: "tab" %>
   </div>
 
   <div class="user-container-show">
@@ -21,6 +21,10 @@
 
     <div class="user-show-right" id="follow_tab" data-content="1" style=":display: none;">
       <%= render partial: "show_follow_tab", locals: {user: @user} %>
+    </div>  
+
+    <div class="user-show-right" id="follow_tab" data-content="2" style=":display: none;">
+      <%= render partial: "show_follower_tab", locals: {user: @user} %>
     </div>  
   </div>
 
