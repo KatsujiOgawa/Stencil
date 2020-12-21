@@ -20,7 +20,7 @@
           <%= link_to "Reviews", reviews_path %>
           <%= link_to "Logout", destroy_user_session_path, method: :delete %>
         <% else %>
-          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
+          <%= link_to 'テストログイン', users_guest_sign_in_path, method: :post %>
           <%= link_to "Sign up", new_user_registration_path %>
           <%= link_to "Login", new_user_session_path %>
         <% end %>

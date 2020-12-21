@@ -38,17 +38,18 @@ main{
 }
 
 .side-bar{
-  padding: 0 15px 0 15px;
+  padding: 20px 15px 20px 15px;
   width: 80px;
   writing-mode: vertical-rl;
   border-right: #666666 1px solid;
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
   background-color: aliceblue;
 }
 
 .side-bar a{
-  font-size: 22px;
+  font-size: 25px;
+  padding: 30px 0 ;
 }
 
 .image-area{
